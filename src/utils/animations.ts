@@ -81,7 +81,7 @@ export const generateSeatData = (): Seat[] => {
   const seatsPerRow = 15;
   const seats: Seat[] = [];
 
-  const getPrice = (row: string) => {
+  const getPrice = (row: string): number => {
     if (row === 'A' || row === 'B') return 2000;
     if (row === 'C') return 1800;
     return 1600;
