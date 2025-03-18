@@ -1,5 +1,6 @@
 
 import { useEffect, useRef } from 'react';
+import { Seat } from '@/types';
 
 export const useIntersectionObserver = (
   callback: IntersectionObserverCallback,
@@ -75,10 +76,10 @@ export const concertData = [
 ];
 
 // Generate mock seat data
-export const generateSeatData = () => {
+export const generateSeatData = (): Seat[] => {
   const rows = ['A', 'B', 'C', 'D', 'E'];
   const seatsPerRow = 15;
-  const seats = [];
+  const seats: Seat[] = [];
 
   const getPrice = (row: string) => {
     if (row === 'A' || row === 'B') return 2000;
@@ -87,7 +88,7 @@ export const generateSeatData = () => {
   };
 
   // Randomly mark some seats as unavailable
-  const getRandomStatus = () => {
+  const getRandomStatus = (): 'available' | 'unavailable' => {
     const random = Math.random();
     return random > 0.9 ? 'unavailable' : 'available';
   };
