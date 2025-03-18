@@ -33,11 +33,11 @@ const SeatSelection: React.FC = () => {
     if (seat.status === 'unavailable') return;
 
     if (seat.status === 'available') {
-      const updatedSeat = { ...seat, status: 'selected' };
+      const updatedSeat: Seat = { ...seat, status: 'selected' as const };
       setSeats(seats.map(s => (s.id === seat.id ? updatedSeat : s)));
       dispatch({ type: 'ADD_SEAT', payload: updatedSeat });
     } else {
-      const updatedSeat = { ...seat, status: 'available' };
+      const updatedSeat: Seat = { ...seat, status: 'available' as const };
       setSeats(seats.map(s => (s.id === seat.id ? updatedSeat : s)));
       dispatch({ type: 'REMOVE_SEAT', payload: seat.id });
     }
