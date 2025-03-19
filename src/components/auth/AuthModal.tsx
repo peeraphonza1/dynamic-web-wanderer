@@ -39,6 +39,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ initialMode = 'login' }) => {
     setTimeout(() => {
       const user = {
         id: uuidv4(),
+        name: username, // Use the username as name
+        email: `${username}@example.com`, // Generate a mock email
         username,
         avatar: `https://api.dicebear.com/6.x/micah/svg?seed=${username}`
       };

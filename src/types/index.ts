@@ -11,6 +11,8 @@ export type User = {
   id: string;
   name: string;
   email: string;
+  username?: string;
+  avatar?: string;
 };
 
 export type Concert = {
@@ -31,6 +33,7 @@ export type Ticket = {
   price: number;
   paymentMethod?: string;
   status: 'pending' | 'confirmed' | 'cancelled';
+  qrCode?: string;
 };
 
 export interface AppState {

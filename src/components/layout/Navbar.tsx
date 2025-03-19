@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Music, Search, Ticket, User } from 'lucide-react';
+import { Music, Search, Ticket, User as UserIcon } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import SearchInput from '@/components/ui/SearchInput';
 
@@ -69,11 +69,11 @@ const Navbar: React.FC = () => {
                 {state.auth.user?.avatar ? (
                   <img 
                     src={state.auth.user.avatar} 
-                    alt={state.auth.user.username} 
+                    alt={state.auth.user.name} 
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <User className="h-5 w-5 text-brand-pink" />
+                  <UserIcon className="h-5 w-5 text-brand-pink" />
                 )}
               </div>
             </Link>
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
               to="/auth" 
               className="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform hover:scale-105"
             >
-              <User className="h-5 w-5 text-brand-pink" />
+              <UserIcon className="h-5 w-5 text-brand-pink" />
             </Link>
           )}
         </div>
