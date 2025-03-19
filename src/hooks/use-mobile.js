@@ -1,8 +1,16 @@
 
 import { useState, useEffect } from "react"
 
+/**
+ * Mobile breakpoint in pixels
+ * @type {number}
+ */
 const MOBILE_BREAKPOINT = 768
 
+/**
+ * Hook to detect if the current viewport is mobile-sized
+ * @returns {boolean} True if viewport width is less than MOBILE_BREAKPOINT
+ */
 export function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false)
 

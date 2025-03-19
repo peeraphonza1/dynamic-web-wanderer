@@ -2,13 +2,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Download, Share2 } from 'lucide-react';
-import { Ticket } from '@/types';
 
-interface TicketViewProps {
-  ticket: Ticket;
-}
+/**
+ * @typedef {Object} Ticket
+ * @property {string} id - The ticket's ID
+ * @property {string} seat - The ticket's seat
+ * @property {string} row - The ticket's row
+ * @property {string} date - The ticket's date
+ * @property {string} [eventName] - The ticket's event name
+ */
 
-const TicketView: React.FC<TicketViewProps> = ({ ticket }) => {
+/**
+ * TicketView component for displaying a ticket
+ * @param {Object} props - Component props
+ * @param {Ticket} props.ticket - Ticket information to display
+ * @returns {JSX.Element} - Rendered component
+ */
+const TicketView = ({ ticket }) => {
   return (
     <div className="pt-24 pb-16 min-h-screen">
       <div className="container mx-auto px-4">
