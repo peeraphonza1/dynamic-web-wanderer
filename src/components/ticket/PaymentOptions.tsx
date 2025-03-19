@@ -5,6 +5,7 @@ import { CreditCard, QrCode, Building } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
+import { Seat } from '@/types';
 
 const PaymentOptions: React.FC = () => {
   const { state, dispatch } = useApp();
@@ -36,7 +37,7 @@ const PaymentOptions: React.FC = () => {
           row: state.selectedSeats[0].row,
           number: state.selectedSeats[0].number,
           price: state.selectedSeats[0].price,
-          status: 'unavailable' // Setting status for the seat
+          status: 'unavailable' as 'unavailable' // Use type assertion to specify the exact literal type
         },
         price: totalAmount,
         paymentMethod: selectedPayment,
