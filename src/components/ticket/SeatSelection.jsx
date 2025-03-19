@@ -27,31 +27,31 @@ const zoneData = [
   { id: 'C', name: 'Zone C (Blue)', price: 1600, color: 'bg-brand-blue' },
 ];
 
-// Updated layout data for the stage diagram with curved/wedge shapes
+// Completely revised layout with proper semicircular positioning
 const zoneLayout = [
-  // Zone A (Green) - Inner semicircle
-  { id: 'A1', zone: 'A', position: 'left-[30%] top-[38%]', transform: 'rotate(-30deg) skew(-10deg)', width: 'w-16', height: 'h-14' },
-  { id: 'A2', zone: 'A', position: 'left-[40%] top-[35%]', transform: 'rotate(-15deg) skew(-5deg)', width: 'w-16', height: 'h-14' },
-  { id: 'A3', zone: 'A', position: 'left-[50%] top-[34%]', transform: 'rotate(0deg) skew(0deg)', width: 'w-16', height: 'h-14' },
-  { id: 'A4', zone: 'A', position: 'left-[60%] top-[35%]', transform: 'rotate(15deg) skew(5deg)', width: 'w-16', height: 'h-14' },
-  { id: 'A5', zone: 'A', position: 'left-[70%] top-[38%]', transform: 'rotate(30deg) skew(10deg)', width: 'w-16', height: 'h-14' },
-  { id: 'A6', zone: 'A', position: 'left-[80%] top-[42%]', transform: 'rotate(45deg) skew(15deg)', width: 'w-16', height: 'h-14' },
+  // Zone A (Green) - Front row closest to stage
+  { id: 'A1', zone: 'A', position: 'left-[18%] top-[50%]' },
+  { id: 'A2', zone: 'A', position: 'left-[30%] top-[40%]' },
+  { id: 'A3', zone: 'A', position: 'left-[43%] top-[38%]' },
+  { id: 'A4', zone: 'A', position: 'left-[57%] top-[38%]' },
+  { id: 'A5', zone: 'A', position: 'left-[70%] top-[40%]' },
+  { id: 'A6', zone: 'A', position: 'left-[82%] top-[50%]' },
   
-  // Zone B (Yellow) - Middle semicircle
-  { id: 'B1', zone: 'B', position: 'left-[23%] top-[48%]', transform: 'rotate(-30deg) skew(-10deg)', width: 'w-20', height: 'h-20' },
-  { id: 'B2', zone: 'B', position: 'left-[35%] top-[45%]', transform: 'rotate(-20deg) skew(-8deg)', width: 'w-20', height: 'h-24' },
-  { id: 'B3', zone: 'B', position: 'left-[50%] top-[46%]', transform: 'rotate(0deg) skew(0deg)', width: 'w-20', height: 'h-24' },
-  { id: 'B4', zone: 'B', position: 'left-[65%] top-[46%]', transform: 'rotate(0deg) skew(0deg)', width: 'w-20', height: 'h-24' },
-  { id: 'B5', zone: 'B', position: 'left-[77%] top-[46%]', transform: 'rotate(20deg) skew(8deg)', width: 'w-20', height: 'h-24' },
-  { id: 'B6', zone: 'B', position: 'left-[90%] top-[48%]', transform: 'rotate(30deg) skew(10deg)', width: 'w-20', height: 'h-20' },
+  // Zone B (Yellow) - Middle row
+  { id: 'B1', zone: 'B', position: 'left-[10%] top-[58%]' },
+  { id: 'B2', zone: 'B', position: 'left-[25%] top-[50%]' },
+  { id: 'B3', zone: 'B', position: 'left-[40%] top-[46%]' },
+  { id: 'B4', zone: 'B', position: 'left-[60%] top-[46%]' },
+  { id: 'B5', zone: 'B', position: 'left-[75%] top-[50%]' },
+  { id: 'B6', zone: 'B', position: 'left-[90%] top-[58%]' },
   
-  // Zone C (Blue) - Outer semicircle
-  { id: 'C1', zone: 'C', position: 'left-[10%] top-[55%]', transform: 'rotate(-30deg) skew(-5deg)', width: 'w-24', height: 'h-28' },
-  { id: 'C2', zone: 'C', position: 'left-[28%] top-[62%]', transform: 'rotate(-20deg) skew(-5deg)', width: 'w-24', height: 'h-40' },
-  { id: 'C3', zone: 'C', position: 'left-[50%] top-[65%]', transform: 'rotate(0deg) skew(0deg)', width: 'w-24', height: 'h-40' },
-  { id: 'C4', zone: 'C', position: 'left-[72%] top-[62%]', transform: 'rotate(20deg) skew(5deg)', width: 'w-24', height: 'h-40' },
-  { id: 'C5', zone: 'C', position: 'left-[90%] top-[55%]', transform: 'rotate(30deg) skew(5deg)', width: 'w-24', height: 'h-28' },
-  { id: 'C6', zone: 'C', position: 'left-[103%] top-[50%]', transform: 'rotate(45deg) skew(10deg)', width: 'w-24', height: 'h-28' },
+  // Zone C (Blue) - Back row farthest from stage
+  { id: 'C1', zone: 'C', position: 'left-[5%] top-[68%]' },
+  { id: 'C2', zone: 'C', position: 'left-[22%] top-[60%]' },
+  { id: 'C3', zone: 'C', position: 'left-[40%] top-[65%]' },
+  { id: 'C4', zone: 'C', position: 'left-[60%] top-[65%]' },
+  { id: 'C5', zone: 'C', position: 'left-[78%] top-[60%]' },
+  { id: 'C6', zone: 'C', position: 'left-[95%] top-[68%]' },
 ];
 
 const SeatSelection = () => {
@@ -200,18 +200,22 @@ const SeatSelection = () => {
                 STAGE
               </div>
               
-              {/* Zone Sections with curved/wedge shapes */}
+              {/* Red line below stage */}
+              <div className="absolute left-0 right-0 top-[35%] h-0.5 bg-red-600 z-0"></div>
+              
+              {/* Zone Sections - simplified rectangular blocks properly arranged in a semicircle */}
               {zoneLayout.map((section) => (
-                <div 
+                <motion.div 
                   key={section.id}
                   onClick={() => handleZoneSelect(section.zone)}
-                  className={`absolute ${section.position} ${section.width} ${section.height} 
+                  className={`absolute ${section.position} w-16 h-12
                     ${section.zone === 'A' ? 'bg-brand-green' : section.zone === 'B' ? 'bg-brand-yellow' : 'bg-brand-blue'} 
-                    opacity-80 hover:opacity-100 cursor-pointer rounded-md flex items-center justify-center transform
-                    ${section.transform}`}
+                    opacity-80 hover:opacity-100 cursor-pointer rounded-md flex items-center justify-center transform`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="text-white font-bold text-lg transform rotate-0">{section.id}</span>
-                </div>
+                  <span className="text-white font-bold text-lg">{section.id}</span>
+                </motion.div>
               ))}
             </div>
             
@@ -253,18 +257,22 @@ const SeatSelection = () => {
                 STAGE
               </div>
               
+              {/* Red line below stage */}
+              <div className="absolute left-0 right-0 top-[35%] h-0.5 bg-red-600 z-0"></div>
+              
               {/* Section Blocks - Only show sections for the selected zone */}
               {filteredSections.map((section) => (
-                <div 
+                <motion.div 
                   key={section.id}
                   onClick={() => handleSectionSelect(section.id)}
-                  className={`absolute ${section.position} ${section.width} ${section.height} 
+                  className={`absolute ${section.position} w-16 h-12
                     ${selectedZone === 'A' ? 'bg-brand-green' : selectedZone === 'B' ? 'bg-brand-yellow' : 'bg-brand-blue'} 
-                    opacity-80 hover:opacity-100 cursor-pointer rounded-md flex items-center justify-center transform
-                    ${section.transform}`}
+                    opacity-80 hover:opacity-100 cursor-pointer rounded-md flex items-center justify-center`}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="text-white font-bold text-lg transform rotate-0">{section.id}</span>
-                </div>
+                  <span className="text-white font-bold text-lg">{section.id}</span>
+                </motion.div>
               ))}
             </div>
             
