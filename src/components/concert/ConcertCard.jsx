@@ -1,15 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Concert } from '@/types';
 import { motion } from 'framer-motion';
 
-interface ConcertCardProps {
-  concert: Concert;
-  index: number;
-}
-
-const ConcertCard: React.FC<ConcertCardProps> = ({ concert, index }) => {
+const ConcertCard = ({ concert, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

@@ -1,16 +1,11 @@
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PlayCircle, Calendar, Music } from 'lucide-react';
-import { Concert } from '@/types';
 import { useApp } from '@/context/AppContext';
 import { motion } from 'framer-motion';
 
-interface ConcertDetailProps {
-  concert: Concert;
-}
-
-const ConcertDetail: React.FC<ConcertDetailProps> = ({ concert }) => {
+const ConcertDetail = ({ concert }) => {
   const { dispatch } = useApp();
   const navigate = useNavigate();
 

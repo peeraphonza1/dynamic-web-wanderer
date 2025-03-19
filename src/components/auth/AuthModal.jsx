@@ -6,12 +6,8 @@ import { useApp } from '@/context/AppContext';
 import { v4 as uuidv4 } from 'uuid';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface AuthModalProps {
-  initialMode?: 'login' | 'register';
-}
-
-const AuthModal: React.FC<AuthModalProps> = ({ initialMode = 'login' }) => {
-  const [mode, setMode] = useState<'login' | 'register'>(initialMode);
+const AuthModal = ({ initialMode = 'login' }) => {
+  const [mode, setMode] = useState(initialMode);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -21,7 +17,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ initialMode = 'login' }) => {
   const { dispatch } = useApp();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
 

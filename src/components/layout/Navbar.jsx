@@ -5,7 +5,7 @@ import { Music, Search, Ticket, User as UserIcon } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import SearchInput from '@/components/ui/SearchInput';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const { state } = useApp();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
