@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const SearchInput: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
