@@ -1,12 +1,11 @@
 
 import React, { useEffect, useState } from 'react';
 import ConcertCard from '@/components/concert/ConcertCard';
-import { concertData } from '@/utils/animations';
+import { concertData, ConcertData } from '@/utils/animations';
 import { motion } from 'framer-motion';
-import { Concert } from '@/types';
 
 const Home: React.FC = () => {
-  const [concerts, setConcerts] = useState<Concert[]>([]);
+  const [concerts, setConcerts] = useState<ConcertData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

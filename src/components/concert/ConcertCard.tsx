@@ -2,10 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Concert } from '@/types';
+import { ConcertData } from '@/utils/animations';
 
 interface ConcertCardProps {
-  concert: Concert;
+  concert: ConcertData;
   index: number;
 }
 

@@ -1,22 +1,10 @@
 
-/**
- * Core types used throughout the application
- */
-
 export interface Ticket {
   id: string;
   seat: string;
   row: string;
   date: string;
   eventName?: string;
-}
-
-export interface Concert {
-  id: string;
-  name: string;
-  date: string;
-  image: string;
-  genre: string;
 }
 
 export interface Seat {
@@ -27,9 +15,18 @@ export interface Seat {
   status: 'available' | 'unavailable' | 'selected';
 }
 
+export interface Concert {
+  id: string;
+  name: string;
+  date: string;
+  image: string;
+  genre?: string;
+}
+
 export interface AuthUser {
   id: string;
   name: string;
+  username: string;
   email: string;
   avatar?: string;
 }

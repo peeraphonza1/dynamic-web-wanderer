@@ -2,13 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ConcertDetailComponent from '@/components/concert/ConcertDetail';
-import { concertData } from '@/utils/animations';
-import { Concert } from '@/types';
+import { concertData, ConcertData } from '@/utils/animations';
 
 const ConcertDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [concert, setConcert] = useState<Concert | null>(null);
+  const [concert, setConcert] = useState<ConcertData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {

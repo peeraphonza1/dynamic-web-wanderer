@@ -1,15 +1,17 @@
 
-import { useEffect, useRef } from 'react';
-import { Concert, Seat } from '@/types';
+import { useEffect, useRef, RefObject } from 'react';
 
-interface IntersectionObserverCallback {
-  (entries: IntersectionObserverEntry[], observer: IntersectionObserver): void;
-}
+type IntersectionObserverCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => void;
+type IntersectionObserverOptions = {
+  root?: Element | null;
+  rootMargin?: string;
+  threshold?: number | number[];
+};
 
 export const useIntersectionObserver = (
   callback: IntersectionObserverCallback,
-  options: IntersectionObserverInit = {}
-) => {
+  options: IntersectionObserverOptions = {}
+): (element: Element | null) => () => void => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -34,7 +36,15 @@ export const useIntersectionObserver = (
   };
 };
 
-export const concertData: Concert[] = [
+export interface ConcertData {
+  id: string;
+  name: string;
+  date: string;
+  image: string;
+  genre: string;
+}
+
+export const concertData: ConcertData[] = [
   {
     id: '1',
     name: 'BODYSLAM',
@@ -79,11 +89,19 @@ export const concertData: Concert[] = [
   }
 ];
 
+export interface SeatData {
+  id: string;
+  row: string;
+  number: number;
+  price: number;
+  status: 'available' | 'unavailable';
+}
+
 // Generate mock seat data
-export const generateSeatData = (): Seat[] => {
+export const generateSeatData = (): SeatData[] => {
   const rows = ['A', 'B', 'C', 'D', 'E'];
   const seatsPerRow = 15;
-  const seats: Seat[] = [];
+  const seats: SeatData[] = [];
 
   const getPrice = (row: string): number => {
     if (row === 'A' || row === 'B') return 2000;
