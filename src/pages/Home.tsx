@@ -1,12 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import ConcertCard from '@/components/concert/ConcertCard';
-import { concertData, ConcertData } from '@/utils/animations';
+import { concertData } from '@/utils/animations';
+import { Concert } from '@/types';
 import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
-  const [concerts, setConcerts] = useState<ConcertData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [concerts, setConcerts] = useState<Concert[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Simulate API call

@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PlayCircle, Calendar, Music } from 'lucide-react';
+import { Concert } from '@/types';
 import { useApp } from '@/context/AppContext';
 import { motion } from 'framer-motion';
-import { Concert } from '@/types';
 
 interface ConcertDetailProps {
   concert: Concert;

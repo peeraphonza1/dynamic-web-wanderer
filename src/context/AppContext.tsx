@@ -1,16 +1,6 @@
 
-import React, { createContext, useContext, useReducer, Dispatch } from 'react';
-import { AppState, Concert, Seat, Ticket, AuthUser } from '@/types';
-
-// Action types
-type ActionType = 
-  | { type: 'SELECT_CONCERT'; payload: Concert }
-  | { type: 'ADD_SEAT'; payload: Seat }
-  | { type: 'REMOVE_SEAT'; payload: string }
-  | { type: 'CLEAR_SEATS' }
-  | { type: 'ADD_TICKET'; payload: Ticket }
-  | { type: 'LOGIN'; payload: AuthUser }
-  | { type: 'LOGOUT' };
+import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import { AppState, Concert, Seat, Ticket, User } from '@/types';
 
 // Initial state
 const initialState: AppState = {
@@ -23,8 +13,18 @@ const initialState: AppState = {
   }
 };
 
+// Action types
+type Action =
+  | { type: 'SELECT_CONCERT'; payload: Concert }
+  | { type: 'ADD_SEAT'; payload: Seat }
+  | { type: 'REMOVE_SEAT'; payload: string }
+  | { type: 'CLEAR_SEATS' }
+  | { type: 'ADD_TICKET'; payload: Ticket }
+  | { type: 'LOGIN'; payload: User }
+  | { type: 'LOGOUT' };
+
 // Reducer
-const reducer = (state: AppState, action: ActionType): AppState => {
+const reducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case 'SELECT_CONCERT':
       return {
@@ -75,12 +75,12 @@ const reducer = (state: AppState, action: ActionType): AppState => {
 // Create the context
 interface AppContextType {
   state: AppState;
-  dispatch: Dispatch<ActionType>;
+  dispatch: React.Dispatch<Action>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export const useApp = (): AppContextType => {
+export const useApp = () => {
   const context = useContext(AppContext);
   if (!context) {
     throw new Error('useApp must be used within an AppProvider');
@@ -89,7 +89,7 @@ export const useApp = (): AppContextType => {
 };
 
 interface AppProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {

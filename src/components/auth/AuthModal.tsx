@@ -12,12 +12,12 @@ interface AuthModalProps {
 
 const AuthModal: React.FC<AuthModalProps> = ({ initialMode = 'login' }) => {
   const [mode, setMode] = useState<'login' | 'register'>(initialMode);
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [confirmPassword, setConfirmPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
-  const [error, setError] = useState<string>('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [error, setError] = useState('');
   const { dispatch } = useApp();
   const navigate = useNavigate();
 
@@ -39,8 +39,6 @@ const AuthModal: React.FC<AuthModalProps> = ({ initialMode = 'login' }) => {
     setTimeout(() => {
       const user = {
         id: uuidv4(),
-        name: username, // Use the username as name
-        email: `${username}@example.com`, // Generate a mock email
         username,
         avatar: `https://api.dicebear.com/6.x/micah/svg?seed=${username}`
       };
@@ -138,7 +136,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ initialMode = 'login' }) => {
 
               <div className="mt-6 text-center">
                 <p className="text-gray-600 dark:text-gray-400">
-                  {mode === 'login' ? "Don't have an account?" : "Have an account?"}{' '}
+                  {mode === 'login' ? "Don't have an account?" : "have an account?"}{' '}
                   <button
                     onClick={toggleMode}
                     className="text-brand-pink font-medium hover:underline transition-all"

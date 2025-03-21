@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowLeft, Download, Share2 } from 'lucide-react';
 import { Ticket } from '@/types';
 
 interface TicketViewProps {
@@ -33,23 +34,23 @@ const TicketView: React.FC<TicketViewProps> = ({ ticket }) => {
                 <div className="px-2">
                   <div className="mb-3">
                     <div className="text-xs text-gray-400">SEAT</div>
-                    <div className="font-bold text-xl">{ticket.seat}</div>
+                    <div className="font-bold text-xl">A4</div>
                   </div>
                   
                   <div className="mb-3">
                     <div className="text-xs text-gray-400">ROW</div>
-                    <div className="font-bold text-xl">{ticket.row}</div>
+                    <div className="font-bold text-xl">02</div>
                   </div>
                   
                   <div className="mb-3">
                     <div className="text-xs text-gray-400">DATE</div>
-                    <div className="font-bold text-sm">{ticket.date}</div>
+                    <div className="font-bold text-sm">18 APR 2013</div>
                   </div>
                 </div>
                 
                 <div>
                   <div className="text-xs text-gray-400">TICKET ID:</div>
-                  <div className="text-xs">{ticket.id}</div>
+                  <div className="text-xs">123456789</div>
                   <div className="mt-2 border-t border-gray-600 pt-2">
                     <div className="rotate-90 transform origin-top-left absolute bottom-0 right-2 text-xs tracking-widest">
                       {Array.from('0123456789').map((char, i) => (

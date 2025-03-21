@@ -1,10 +1,11 @@
 
-export interface Ticket {
+export interface Concert {
   id: string;
-  seat: string;
-  row: string;
+  name: string;
   date: string;
-  eventName?: string;
+  image: string;
+  genre?: string;
+  description?: string;
 }
 
 export interface Seat {
@@ -12,31 +13,36 @@ export interface Seat {
   row: string;
   number: number;
   price: number;
-  status: 'available' | 'unavailable' | 'selected';
+  status: 'available' | 'selected' | 'unavailable';
 }
 
-export interface Concert {
+export interface User {
   id: string;
-  name: string;
-  date: string;
-  image: string;
-  genre?: string;
-}
-
-export interface AuthUser {
-  id: string;
-  name: string;
   username: string;
-  email: string;
   avatar?: string;
+}
+
+export interface Ticket {
+  id: string;
+  concertId: string;
+  concertName: string;
+  date: string;
+  seat: {
+    row: string;
+    number: number;
+  };
+  price: number;
+  qrCode?: string;
+}
+
+export interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
 }
 
 export interface AppState {
   selectedConcert: Concert | null;
   selectedSeats: Seat[];
   tickets: Ticket[];
-  auth: {
-    user: AuthUser | null;
-    isAuthenticated: boolean;
-  };
+  auth: AuthState;
 }
