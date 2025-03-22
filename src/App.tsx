@@ -1,4 +1,5 @@
 
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,31 +16,34 @@ import Auth from "@/pages/Auth";
 import NotFound from "@/pages/NotFound";
 import { LazyMotion, domAnimation } from "framer-motion";
 
+// Create a client
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <LazyMotion features={domAnimation}>
-        <AppProvider>
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/concert/:id" element={<ConcertDetail />} />
-              <Route path="/concert/:id/seats" element={<SeatSelection />} />
-              <Route path="/payment" element={<Payment />} />
-              <Route path="/ticket" element={<Ticket />} />
-              <Route path="/auth" element={<Auth />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </AppProvider>
-      </LazyMotion>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <LazyMotion features={domAnimation}>
+          <AppProvider>
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/concert/:id" element={<ConcertDetail />} />
+                <Route path="/concert/:id/seats" element={<SeatSelection />} />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/ticket" element={<Ticket />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </AppProvider>
+        </LazyMotion>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </React.StrictMode>
 );
 
 export default App;
